@@ -39,12 +39,6 @@ class TestMetrics(unittest.TestCase):
         y_true = ['O', 'O', 'O', 'MISC-B', 'MISC-I', 'MISC-I', 'O', 'PER-B', 'PER-I']
         self.assertEqual(get_entities(y_true, suffix=True), [('MISC', 3, 5), ('PER', 7, 8)])
 
-    def test_get_entities_with_unexpected_input(self):
-        y_true = ['O', 'O', 'O', 'MISC', 'MISC', 'MISC', 'O', 'PER', 'PER']
-        with self.assertRaises(Exception):
-            get_entities(y_true)
-            get_entities(y_true, suffix=True)
-
     def test_get_entities_with_only_IOB(self):
         y_true = [['O', 'O', 'O', 'B', 'I', 'I', 'O'], ['B', 'I', 'O']]
         entities = get_entities(y_true)
